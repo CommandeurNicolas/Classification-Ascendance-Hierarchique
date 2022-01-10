@@ -1,15 +1,19 @@
-# argecho.py
 import sys
-import point
-data = []
+from package import *
 
+cluster = Cluster()
 if __name__ == "__main__":
     if(len(sys.argv) < 2):
         print('usage: python main.py [file]')
         exit(0)
     file = open(sys.argv[1])
+
     for line in file:
         s = line.split()
-        data.append(point.Point(s[0],s[1],s[2]))
-    print(data)
-    
+        p = Point(s[0], int(s[1]), int(s[2]))
+        cluster.add(p)
+    cluster.show()
+    print(cluster.min(Point("g",7,13)))
+    print(cluster.max(Point("g",7,13)))
+    exit(0)
+1
